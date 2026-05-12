@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Fees</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#eef2ff;
+            min-height:100vh;
+            padding:40px;
+        }
+
+        .top-section{
+            margin-bottom:20px;
+        }
+
+        .back-btn{
+            background:#2563eb;
+            color:white;
+            padding:12px 22px;
+            text-decoration:none;
+            border-radius:10px;
+            font-size:16px;
+            font-weight:bold;
+            display:inline-block;
+            transition:0.3s;
+            box-shadow:0 4px 10px rgba(37,99,235,0.3);
+        }
+
+        .back-btn:hover{
+            background:#1d4ed8;
+            transform:translateY(-2px);
+        }
+
+        .container{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .box{
+            width:500px;
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:30px;
+            color:#2563eb;
+        }
+
+        .info{
+            background:#f8fafc;
+            padding:18px;
+            border-radius:10px;
+            margin-bottom:20px;
+            line-height:1.8;
+        }
+
+        .info span{
+            font-weight:bold;
+            color:#111827;
+        }
+
+        input{
+            width:100%;
+            padding:14px;
+            border:1px solid #ccc;
+            border-radius:10px;
+            margin-bottom:20px;
+            font-size:16px;
+        }
+
+        button{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:10px;
+            background:#2563eb;
+            color:white;
+            font-size:18px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#1d4ed8;
+        }
+
+        .message{
+            background:#dcfce7;
+            color:#166534;
+            padding:12px;
+            border-radius:8px;
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="top-section">
+
+        <a href="/manage-fees/" class="back-btn">
+
+            ← Back
+
+        </a>
+
+    </div>
+
+    <div class="container">
+
+    <div class="box">
+
+        <h1>Update Student Fees</h1>
+
+        {% if message %}
+
+            <div class="message">
+
+                {{message}}
+
+            </div>
+
+        {% endif %}
+
+        <div class="info">
+
+            <p><span>Student:</span> {{fee.student.name}}</p>
+
+            <p><span>Total Fees:</span> ₹{{fee.total_fees}}</p>
+
+            <p><span>Paid Fees:</span> ₹{{fee.paid_fees}}</p>
+
+            <p><span>Remaining Fees:</span> ₹{{fee.remaining_fees}}</p>
+
+            <p><span>Status:</span> {{fee.status}}</p>
+
+        </div>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <input type="number"
+                   name="new_paid_amount"
+                   placeholder="Enter New Paid Amount">
+
+            <button>
+
+                Update Fees
+
+            </button>
+
+        </form>
+
+    </div>
+
+    </div>
+
+</body>
+</html>

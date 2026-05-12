@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Results</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#f5f5f5;
+            padding:40px;
+        }
+
+        .top-section{
+            margin-bottom:20px;
+        }
+
+        .back-btn{
+            background:#2563eb;
+            color:white;
+            padding:12px 22px;
+            text-decoration:none;
+            border-radius:10px;
+            font-size:16px;
+            font-weight:bold;
+            display:inline-block;
+            transition:0.3s;
+            box-shadow:0 4px 10px rgba(37,99,235,0.3);
+        }
+
+        .back-btn:hover{
+            background:#1d4ed8;
+            transform:translateY(-2px);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:40px;
+            color:#2563eb;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+
+        th,td{
+            padding:18px;
+            border:1px solid #ddd;
+            text-align:center;
+        }
+
+        th{
+            background:#2563eb;
+            color:white;
+        }
+
+        .grade{
+            font-weight:bold;
+            color:green;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="top-section">
+
+        <a href="/student-dashboard/" class="back-btn">
+
+            ← Back
+
+        </a>
+
+    </div>
+
+    <h1>{{user.name}} Results</h1>
+
+    <div style="text-align:center;
+margin-bottom:30px;">
+
+    <a href="/download-result-pdf/"
+       style="background:#2563eb;
+              color:white;
+              padding:14px 22px;
+              text-decoration:none;
+              border-radius:10px;
+              font-size:18px;">
+
+        Download PDF
+
+    </a>
+
+</div>
+
+    <table>
+
+    <tr>
+
+        <th>Subject</th>
+        <th>Marks</th>
+
+    </tr>
+
+    {% for result in results %}
+
+    <tr>
+
+        <td>{{result.subject1}}</td>
+        <td>{{result.subject1_marks}}</td>
+
+    </tr>
+
+    <tr>
+
+        <td>{{result.subject2}}</td>
+        <td>{{result.subject2_marks}}</td>
+
+    </tr>
+
+    <tr>
+
+        <td>{{result.subject3}}</td>
+        <td>{{result.subject3_marks}}</td>
+
+    </tr>
+
+    <tr>
+
+        <td>{{result.subject4}}</td>
+        <td>{{result.subject4_marks}}</td>
+
+    </tr>
+
+    <tr>
+
+        <td>{{result.subject5}}</td>
+        <td>{{result.subject5_marks}}</td>
+
+    </tr>
+
+    <tr>
+
+        <td>{{result.subject6}}</td>
+        <td>{{result.subject6_marks}}</td>
+
+    </tr>
+
+    <tr style="background:#f5f5f5;font-weight:bold;">
+
+        <td>Total Marks</td>
+
+        <td>{{result.total_marks}}</td>
+
+    </tr>
+
+    <tr style="background:#f5f5f5;font-weight:bold;">
+
+        <td>Obtained Marks</td>
+
+        <td>{{result.obtained_marks}}</td>
+
+    </tr>
+
+    <tr style="background:#f5f5f5;font-weight:bold;">
+
+        <td>Percentage</td>
+
+        <td>{{result.percentage}}%</td>
+
+    </tr>
+
+    <tr style="background:#f5f5f5;font-weight:bold;">
+
+        <td>Grade</td>
+
+        <td class="grade">
+
+            {{result.grade}}
+
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#eef2ff;
+            padding:40px;
+        }
+
+        h1{
+            text-align:center;
+            color:#2563eb;
+            margin-bottom:40px;
+            font-size:42px;
+        }
+
+        .cards{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:25px;
+        }
+
+        .card{
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.08);
+            transition:.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+        }
+
+        .card h2{
+            color:#374151;
+            margin-bottom:15px;
+            font-size:22px;
+        }
+
+        .card h1{
+            color:#2563eb;
+            font-size:38px;
+            margin:0;
+        }
+
+        .topper{
+            background:linear-gradient(135deg,#2563eb,#1d4ed8);
+            color:white;
+        }
+
+        .topper h2,
+        .topper h1,
+        .topper p{
+            color:white;
+        }
+
+        .pass{
+            border-left:8px solid #16a34a;
+        }
+
+        .fail{
+            border-left:8px solid #dc2626;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>School Analytics Dashboard</h1>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h2>Total Students</h2>
+
+            <h1>{{total_students}}</h1>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Total Teachers</h2>
+
+            <h1>{{total_teachers}}</h1>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Total Results</h2>
+
+            <h1>{{total_results}}</h1>
+
+        </div>
+
+        <div class="card topper">
+
+            <h2>Topper Student</h2>
+
+            {% if topper %}
+
+                <h1>{{topper.student.name}}</h1>
+
+                <p>
+
+                    {{topper.percentage}}%
+
+                </p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="card">
+
+            <h2>Average Percentage</h2>
+
+            <h1>{{average_percentage}}%</h1>
+
+        </div>
+
+        <div class="card pass">
+
+            <h2>Pass Students</h2>
+
+            <h1>{{pass_students}}</h1>
+
+        </div>
+
+        <div class="card fail">
+
+            <h2>Fail Students</h2>
+
+            <h1>{{fail_students}}</h1>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

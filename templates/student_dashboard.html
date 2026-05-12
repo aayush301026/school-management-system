@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            display:flex;
+            background:#f5f5f5;
+        }
+
+        .sidebar{
+            width:250px;
+            height:100vh;
+            background:#2563eb;
+            color:white;
+            padding:30px 20px;
+            position:fixed;
+        }
+
+        .sidebar h2{
+            text-align:center;
+            margin-bottom:40px;
+        }
+
+        .sidebar ul{
+            list-style:none;
+        }
+
+        .sidebar ul li{
+            margin:20px 0;
+        }
+
+        .sidebar ul li a{
+            color:white;
+            text-decoration:none;
+            font-size:18px;
+            display:block;
+            padding:12px;
+            border-radius:8px;
+            transition:.3s;
+        }
+
+        .sidebar ul li a:hover{
+            background:white;
+            color:#2563eb;
+        }
+
+        .main{
+            margin-left:250px;
+            width:100%;
+            padding:40px;
+        }
+
+        .topbar{
+            background:white;
+            padding:20px;
+            border-radius:15px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+            margin-bottom:30px;
+        }
+
+        .topbar h1{
+            color:#2563eb;
+        }
+
+        .cards{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:25px;
+        }
+
+        .card{
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+            transition:.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-10px);
+        }
+
+        .card h2{
+            color:#2563eb;
+            margin-bottom:15px;
+        }
+
+        .card p{
+            font-size:18px;
+            color:#555;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="sidebar">
+
+        <h2>Student Panel</h2>
+
+        <ul>
+
+            <li><a href="">Dashboard</a></li>
+
+            <li><a href="/view-timetable/">Timetable</a></li>
+
+            <li><a href="/student-profile/">Profile</a></li>
+
+            <li><a href="/student-attendance/"> Attendance </a></li>
+
+            <li><a href="/student-results/">Results</a></li>
+
+            <li><a href="/view-notices/">Notices</a></li>
+
+            <li><a href="/student-fees/">Fees</a></li>
+
+            <li><a href="/logout/">Logout</a></li>
+
+        </ul>
+
+    </div>
+
+    <div class="main">
+
+        <div class="topbar">
+
+            <h1>Welcome {{user.name}}</h1>
+
+            <p>{{user.email}}</p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h2>Attendance</h2>
+
+                <p>Check your attendance records.</p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Results</h2>
+
+                <p>View exam marks and grades.</p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Profile</h2>
+
+                <p>Manage your student profile.</p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Notices</h2>
+
+                <p>View latest school notices.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

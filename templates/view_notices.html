@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Notices</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#f5f5f5;
+            padding:40px;
+        }
+
+        .top-section{
+            margin-bottom:20px;
+        }
+
+        .back-btn{
+            background:#2563eb;
+            color:white;
+            padding:12px 22px;
+            text-decoration:none;
+            border-radius:10px;
+            font-size:16px;
+            font-weight:bold;
+            display:inline-block;
+            transition:0.3s;
+            box-shadow:0 4px 10px rgba(37,99,235,0.3);
+        }
+
+        .back-btn:hover{
+            background:#1d4ed8;
+            transform:translateY(-2px);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:40px;
+            color:#2563eb;
+        }
+
+        .notice-box{
+            background:white;
+            padding:25px;
+            border-radius:12px;
+            margin-bottom:20px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .notice-box h2{
+            color:#2563eb;
+            margin-bottom:10px;
+        }
+
+        .date{
+            color:gray;
+            margin-bottom:15px;
+        }
+
+        p{
+            line-height:1.6;
+            color:#444;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="top-section">
+
+        <a href="/student-dashboard/" class="back-btn">
+
+            ← Back
+
+        </a>
+
+    </div>
+
+    <h1>School Notices</h1>
+
+    {% for notice in notices %}
+
+    <div class="notice-box">
+
+        <h2>{{notice.title}}</h2>
+
+        <div class="date">
+
+            {{notice.date}}
+
+        </div>
+
+        <p>{{notice.message}}</p>
+
+    </div>
+
+    {% empty %}
+
+    <h2 style="text-align:center;color:gray;">
+
+        No Notices Available
+
+    </h2>
+
+    {% endfor %}
+
+</body>
+</html>

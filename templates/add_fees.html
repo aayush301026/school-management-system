@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student Fees</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#eef2ff;
+            min-height:100vh;
+            padding:40px;
+        }
+
+        .top-section{
+            margin-bottom:20px;
+        }
+
+        .back-btn{
+            background:#2563eb;
+            color:white;
+            padding:12px 22px;
+            text-decoration:none;
+            border-radius:10px;
+            font-size:16px;
+            font-weight:bold;
+            display:inline-block;
+            transition:0.3s;
+            box-shadow:0 4px 10px rgba(37,99,235,0.3);
+        }
+
+        .back-btn:hover{
+            background:#1d4ed8;
+            transform:translateY(-2px);
+        }
+
+        .container{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .box{
+            width:700px;
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:30px;
+            color:#059669;
+        }
+
+        .message{
+            text-align:center;
+            color:green;
+            margin-bottom:20px;
+            font-size:20px;
+        }
+
+        select,input{
+            width:100%;
+            padding:14px;
+            margin-bottom:20px;
+            border:1px solid #ccc;
+            border-radius:10px;
+            font-size:16px;
+        }
+
+        button{
+            width:100%;
+            padding:14px;
+            background:#059669;
+            color:white;
+            border:none;
+            border-radius:10px;
+            font-size:18px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#047857;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="top-section">
+
+        <a href="/manage-fees/" class="back-btn">
+
+            ← Back
+
+        </a>
+
+    </div>
+
+    <div class="container">
+
+    <div class="box">
+
+        <h1>Add Student Fees</h1>
+
+        {% if message %}
+
+            <div class="message">
+
+                {{message}}
+
+            </div>
+
+        {% endif %}
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <select name="student_id">
+
+                {% for student in students %}
+
+                    <option value="{{student.id}}">
+
+                        {{student.name}}
+
+                    </option>
+
+                {% endfor %}
+
+            </select>
+
+            <input type="number"
+                   name="admission_fees"
+                   placeholder="Admission Fees">
+
+            <input type="number"
+                   name="tuition_fees"
+                   placeholder="Tuition Fees">
+
+            <input type="number"
+                   name="exam_fees"
+                   placeholder="Exam Fees">
+
+            <input type="number"
+                   name="dress_fees"
+                   placeholder="Dress Fees">
+
+            <input type="number"
+                   name="book_fees"
+                   placeholder="Book Fees">
+
+            <input type="number"
+                   name="transport_fees"
+                   placeholder="Transport Fees">
+
+            <input type="number"
+                   name="insurance_fees"
+                   placeholder="Insurance Fees">
+
+            <input type="number"
+                   name="paid_fees"
+                   placeholder="Paid Fees">
+
+            <button>
+
+                Add Fees
+
+            </button>
+
+        </form>
+
+    </div>
+
+    </div>
+
+</body>
+</html>

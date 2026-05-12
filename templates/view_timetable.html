@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>View Timetable</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background:#f5f5f5;
+    padding:40px;
+}
+
+.top-section{
+    margin-bottom:20px;
+}
+
+.back-btn{
+    background:#2563eb;
+    color:white;
+    padding:12px 22px;
+    text-decoration:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    display:inline-block;
+    transition:0.3s;
+    box-shadow:0 4px 10px rgba(37,99,235,0.3);
+}
+
+.back-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+h1{
+    text-align:center;
+    color:#2563eb;
+    margin-bottom:40px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+th,td{
+    padding:16px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+th{
+    background:#2563eb;
+    color:white;
+}
+
+tr:hover{
+    background:#f8fafc;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="top-section">
+
+    <a href="/student-dashboard/" class="back-btn">
+
+        ← Back
+
+    </a>
+
+</div>
+
+<h1>Class Timetable</h1>
+
+<table>
+
+<tr>
+
+<th>Day</th>
+<th>Period 1</th>
+<th>Period 2</th>
+<th>Period 3</th>
+<th>Period 4</th>
+<th>Period 5</th>
+<th>Period 6</th>
+
+</tr>
+
+{% for t in timetable %}
+
+<tr>
+
+<td>{{t.day}}</td>
+
+<td>{{t.period1}}</td>
+
+<td>{{t.period2}}</td>
+
+<td>{{t.period3}}</td>
+
+<td>{{t.period4}}</td>
+
+<td>{{t.period5}}</td>
+
+<td>{{t.period6}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

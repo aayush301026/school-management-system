@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Timetable</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial;
+    background:#eef2ff;
+    min-height:100vh;
+    padding:40px;
+}
+
+.top-section{
+    margin-bottom:20px;
+}
+
+.back-btn{
+    background:#2563eb;
+    color:white;
+    padding:12px 22px;
+    text-decoration:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    display:inline-block;
+    transition:0.3s;
+    box-shadow:0 4px 10px rgba(37,99,235,0.3);
+}
+
+.back-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.box{
+    width:600px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+    color:#2563eb;
+    margin-bottom:30px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin-bottom:18px;
+    border:1px solid #ccc;
+    border-radius:10px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.message{
+    color:green;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="top-section">
+
+    <a href="/teacher-dashboard/" class="back-btn">
+
+        ← Back
+
+    </a>
+
+</div>
+
+<div class="container">
+
+<div class="box">
+
+<h1>Add Timetable</h1>
+
+{% if message %}
+
+<div class="message">
+
+{{message}}
+
+</div>
+
+{% endif %}
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input type="text" name="day" placeholder="Day">
+
+<input type="text" name="period1" placeholder="Period 1">
+
+<input type="text" name="period2" placeholder="Period 2">
+
+<input type="text" name="period3" placeholder="Period 3">
+
+<input type="text" name="period4" placeholder="Period 4">
+
+<input type="text" name="period5" placeholder="Period 5">
+
+<input type="text" name="period6" placeholder="Period 6">
+
+<button>
+
+Save Timetable
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+</html>
