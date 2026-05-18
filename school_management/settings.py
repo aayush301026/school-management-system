@@ -41,7 +41,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    MIDDLEWARE = [
 
     'django.middleware.security.SecurityMiddleware',
 
@@ -59,7 +58,6 @@ MIDDLEWARE = [
 
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-]
 ]
 
 ROOT_URLCONF = 'school_management.urls'
