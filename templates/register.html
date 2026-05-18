@@ -16,11 +16,37 @@
 
         body{
             background:#dbeafe;
+            min-height:100vh;
+            padding:30px;
+        }
+
+        .top-section{
+            margin-bottom:20px;
+        }
+
+        .back-btn{
+            background:#1e3a8a;
+            color:white;
+            padding:12px 22px;
+            text-decoration:none;
+            border-radius:10px;
+            font-size:16px;
+            font-weight:bold;
+            display:inline-block;
+            transition:0.3s;
+            box-shadow:0 4px 10px rgba(30,58,138,0.3);
+        }
+
+        .back-btn:hover{
+            background:#2563eb;
+            transform:translateY(-2px);
+        }
+
+        .container{
             display:flex;
             justify-content:center;
             align-items:center;
-            min-height:100vh;
-            padding:30px;
+            min-height:85vh;
         }
 
         .register-box{
@@ -80,6 +106,7 @@
         .login-link a{
             color:#1e3a8a;
             text-decoration:none;
+            font-weight:bold;
         }
 
     </style>
@@ -87,55 +114,105 @@
 </head>
 <body>
 
+    <div class="top-section">
+
+        <a href="/" class="back-btn">
+
+            ← Back
+
+        </a>
+
+    </div>
+
+    <div class="container">
+
     <div class="register-box">
 
         <h1>Register</h1>
 
         <form method="POST">
 
-    {% csrf_token %}
+            {% csrf_token %}
 
             <div class="input-box">
+
                 <label>Full Name</label>
-                <input type="text" name="name" placeholder="Enter Full Name">
+
+                <input type="text"
+                       name="name"
+                       placeholder="Enter Full Name">
+
             </div>
 
             <div class="input-box">
+
                 <label>Email</label>
-                <input type="email" name="email" placeholder="Enter Email">
+
+                <input type="email"
+                       name="email"
+                       placeholder="Enter Email">
+
             </div>
 
             <div class="input-box">
+
                 <label>Phone</label>
-                <input type="text" name="phone" placeholder="Enter Phone Number">
+
+                <input type="text"
+                       name="phone"
+                       placeholder="Enter Phone Number">
+
             </div>
 
             <div class="input-box">
+
                 <label>Role</label>
 
                 <select name="role">
+
                     <option>Student</option>
+
                     <option>Teacher</option>
+
                 </select>
+
             </div>
 
             <div class="input-box">
+
                 <label>Password</label>
-                <input type="password" name="password" placeholder="Enter Password">
+
+                <input type="password"
+                       name="password"
+                       placeholder="Enter Password">
+
             </div>
 
-            <button class="btn">Register</button>
+            <button class="btn">
+
+                Register
+
+            </button>
 
         </form>
 
         <div class="login-link">
 
             <p>
+
                 Already have an account?
-                <a href="/login/">Login</a>
+
+                <a href="/login/">
+
+                    Login
+
+                </a>
+
             </p>
 
         </div>
+
+    </div>
 
     </div>
 

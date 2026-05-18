@@ -15,11 +15,38 @@
         }
 
         body{
-            height:100vh;
+            min-height:100vh;
+            padding:40px;
+            background:#dbeafe;
+        }
+
+        .top-section{
+            margin-bottom:20px;
+        }
+
+        .back-btn{
+            background:#1e3a8a;
+            color:white;
+            padding:12px 22px;
+            text-decoration:none;
+            border-radius:10px;
+            font-size:16px;
+            font-weight:bold;
+            display:inline-block;
+            transition:0.3s;
+            box-shadow:0 4px 10px rgba(30,58,138,0.3);
+        }
+
+        .back-btn:hover{
+            background:#2563eb;
+            transform:translateY(-2px);
+        }
+
+        .container{
             display:flex;
             justify-content:center;
             align-items:center;
-            background:#dbeafe;
+            min-height:80vh;
         }
 
         .login-box{
@@ -78,6 +105,7 @@
         .register-link a{
             text-decoration:none;
             color:#1e3a8a;
+            font-weight:bold;
         }
 
     </style>
@@ -85,33 +113,71 @@
 </head>
 <body>
 
+    <div class="top-section">
+
+        <a href="/" class="back-btn">
+
+            ← Back
+
+        </a>
+
+    </div>
+
+    <div class="container">
+
     <div class="login-box">
 
         <h1>Login</h1>
 
         <form method="POST">
 
-    {% csrf_token %}
+            {% csrf_token %}
 
             <div class="input-box">
+
                 <label>Email</label>
-                <input type="email" name="email" placeholder="Enter Email">
+
+                <input type="email"
+                       name="email"
+                       placeholder="Enter Email">
+
             </div>
 
             <div class="input-box">
+
                 <label>Password</label>
-                <input type="password" name="password" placeholder="Enter Password">
+
+                <input type="password"
+                       name="password"
+                       placeholder="Enter Password">
+
             </div>
 
-            <button class="btn">Login</button>
+            <button class="btn">
+
+                Login
+
+            </button>
 
         </form>
 
         <div class="register-link">
-            <p>Don't have an account?
-                <a href="">Register</a>
+
+            <p>
+
+                Don't have an account?
+
+                <a href="/register/">
+
+                    Register
+
+                </a>
+
             </p>
+
         </div>
+
+    </div>
 
     </div>
 
